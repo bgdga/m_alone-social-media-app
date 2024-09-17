@@ -1,121 +1,133 @@
 <!DOCTYPE html>
-<!-- Defines the document type as HTML5 -->
+<!-- Declares the document type as HTML5. This tells the browser that the page is using the latest version of HTML -->
 <html lang="en">
-<!-- Opens an HTML document and sets the language to English -->
+<!-- Opens the HTML document and specifies the language as English using the 'lang' attribute. This is important for SEO and accessibility tools like screen readers -->
 <head>
+    <!-- The <head> element contains metadata (data about the document), like the character set, document title, and links to external resources (CSS, JavaScript). It does not display content directly on the webpage -->
+    
     <meta charset="UTF-8">
-    <!-- Specifies the character encoding as UTF-8, supporting a wide range of characters -->
+    <!-- <meta charset="UTF-8"> defines the character encoding used by the webpage, which is 'UTF-8'. UTF-8 supports almost all characters from all languages and is a widely used standard for encoding text. It ensures that special characters (like emojis, symbols, or non-English text) are rendered correctly -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Ensures the page is responsive and adjusts to various device screen widths -->
+    <!-- <meta> tags contain metadata about the webpage. 
+    'name="viewport"' controls how the webpage is displayed on different devices (like mobile or desktop). 
+    'content' attribute provides settings:
+      - 'width=device-width' ensures the page's width matches the screen width of the device (makes the page responsive).
+      - 'initial-scale=1.0' sets the initial zoom level to 1:1 (prevents the page from being zoomed out by default on mobile). These settings are essential for making your website mobile-friendly and responsive -->
+    
     <title>Feelings ??</title>
-    <!-- Sets the title of the webpage to 'Feelings ??', displayed in the browser tab -->
+    <!-- Sets the title of the webpage, which is shown in the browser tab or on search engine results. The <title> tag is essential for SEO (Search Engine Optimization) and user navigation. -->
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/1.css') }}">
-    <!-- Links an external CSS file (1.css) for styling via the 'url_for' Flask function -->
+    <!-- Links an external CSS file to style the page. 
+    'rel="stylesheet"' tells the browser the linked resource is a CSS file.
+    'href' contains the location of the CSS file. Here Flask's 'url_for()' function is used to dynamically generate the URL to the CSS file located in the 'static' folder (standard practice in Flask to handle static files like CSS, JavaScript, and images). -->
 </head>
 <body>
-    <!-- Begins the body of the webpage where visible content is placed -->
+    <!-- <body> defines the main content of the HTML document, everything inside <body> is visible to the user. -->
+
     <header>
-        <!-- Defines a header section for the page -->
+        <!-- <header> represents the header section of the webpage, typically containing introductory content or navigational links. It’s often used to define a title or a top section of a webpage -->
         <h1>!! Emotions make us Human !!</h1>
-        <!-- Main title or heading displayed at the top of the page -->
+        <!-- <h1> defines the highest level of heading on the page (there are six levels of headings, h1 to h6). It provides a title for the page, and it’s significant for both structure and SEO -->
     </header>
     
     <div id="auth-section" class="centered-container">
-        <!-- A div container for the authentication section with a class to center its contents -->
+        <!-- <div> is a block-level container element used to group elements together. 
+        'id' is a unique identifier for this element on the page, allowing us to reference it in CSS or JavaScript.
+        'class' is a CSS class that can be shared by multiple elements, allowing common styling. Here, 'centered-container' likely helps to center the buttons. -->
         <button onclick="showSignup()">Signup</button>
-        <!-- Signup button; triggers the JavaScript function 'showSignup()' when clicked -->
+        <!-- <button> creates a clickable button. 'onclick' is a JavaScript event handler, and it calls the 'showSignup()' function when the button is clicked -->
         <button onclick="showLogin()">Login</button>
-        <!-- Login button; triggers the JavaScript function 'showLogin()' when clicked -->
+        <!-- Another button that triggers the 'showLogin()' JavaScript function when clicked -->
     </div>
 
     <!-- Signup Dialog -->
     <div id="signup-dialog" style="display: none;">
-        <!-- Hidden dialog for the signup form, initially hidden with 'display: none;' -->
+        <!-- This <div> creates a container for the signup dialog, initially hidden using 'style="display: none;"'. This means the dialog won’t appear on page load and will be shown using JavaScript -->
         <h2>Signup</h2>
-        <!-- Subheading for the signup form -->
+        <!-- <h2> defines a second-level heading, smaller than <h1>. It indicates the beginning of the signup form -->
         <input type="text" id="signup-username" placeholder="Username">
-        <!-- Text input field for entering the signup username -->
+        <!-- <input> creates an input field where users can enter text. 'type="text"' specifies that it is a text input field. 
+        'id' is used to uniquely identify this input field in JavaScript.
+        'placeholder' defines a short hint that appears in the input field when it is empty -->
         <input type="password" id="signup-password" placeholder="Password">
-        <!-- Password input field for entering the signup password -->
+        <!-- Another input field, but 'type="password"' hides the characters entered (for security). Used for passwords -->
         <button onclick="signup()">Signup</button>
-        <!-- Button to trigger the 'signup()' JavaScript function for signing up -->
+        <!-- Button to submit the signup form, triggering the 'signup()' function in JavaScript when clicked -->
         <button onclick="hideDialog()">Cancel</button>
-        <!-- Button to trigger the 'hideDialog()' function to close the signup dialog -->
+        <!-- Button to cancel the signup, which calls 'hideDialog()' to close the dialog -->
     </div>
 
     <!-- Login Dialog -->
     <div id="login-dialog" style="display: none;">
-        <!-- Hidden dialog for the login form, initially hidden with 'display: none;' -->
+        <!-- Similar to the signup dialog, this <div> contains the login form and is initially hidden. It will be shown by JavaScript when needed -->
         <h2>Login</h2>
-        <!-- Subheading for the login form -->
+        <!-- <h2> heading to indicate the login form section -->
         <input type="text" id="login-username" placeholder="Username">
-        <!-- Text input field for entering the login username -->
+        <!-- Input field for the username in the login form -->
         <input type="password" id="login-password" placeholder="Password">
-        <!-- Password input field for entering the login password -->
+        <!-- Input field for the password in the login form -->
         <button onclick="login()">Login</button>
-        <!-- Button to trigger the 'login()' function to perform user login -->
+        <!-- Button to submit the login form, triggering the 'login()' function -->
         <button onclick="hideDialog()">Cancel</button>
-        <!-- Button to cancel and close the login dialog -->
+        <!-- Button to close the login dialog, calling the 'hideDialog()' function -->
     </div>
 
     <!-- Poll Section -->
     <div id="poll-section" style="display: none;">
-        <!-- Hidden poll section where users select their current emotion -->
+        <!-- This <div> contains the poll where users can vote for their current emotion. Initially hidden with 'display: none;' -->
         <h2>How are you feeling currently?</h2>
-        <!-- Subheading asking users about their current emotion -->
+        <!-- Heading prompting the user to choose their current emotion -->
         <ul id="emotion-list">
-            <!-- Unordered list of emotions for users to choose from -->
+            <!-- <ul> creates an unordered list (bullet points), where each <li> will represent an emotion -->
             <li data-emotion="Happy">😊 Happy</li>
-            <!-- List item representing the 'Happy' emotion, with an emoji and emotion name -->
+            <!-- <li> represents a list item. 'data-emotion' is a custom data attribute used to store the emotion (can be accessed in JavaScript), and '😊 Happy' is displayed on the page -->
             <li data-emotion="Sad">😢 Sad</li>
-            <!-- List item for the 'Sad' emotion -->
             <li data-emotion="Angry">😠 Angry</li>
-            <!-- List item for the 'Angry' emotion -->
             <li data-emotion="Scared">😨 Scared</li>
-            <!-- List item for the 'Scared' emotion -->
             <li data-emotion="Neutral">😐 Neutral</li>
-            <!-- List item for the 'Neutral' emotion -->
             <li data-emotion="Other">🔤 Other</li>
-            <!-- List item for the 'Other' emotion with a prompt for custom input -->
+            <!-- These list items represent other emotions like Sad, Angry, Scared, Neutral, and an option to input 'Other' emotions -->
         </ul>
         <button onclick="submitVote()">Submit Vote</button>
-        <!-- Button to trigger the 'submitVote()' function to submit the user's vote -->
+        <!-- Button that triggers 'submitVote()' to submit the selected emotion as a vote -->
     </div>
 
     <!-- Other Emotion Dialog -->
     <div id="other-dialog" style="display: none;">
-        <!-- Hidden dialog for entering a custom emotion, initially hidden with 'display: none;' -->
+        <!-- This dialog allows users to input a custom emotion if they choose "Other". Initially hidden -->
         <h2>Express Your Feeling</h2>
-        <!-- Subheading for the custom emotion input section -->
+        <!-- Heading for the custom emotion input section -->
         <input type="text" id="other-emotion" maxlength="20" placeholder="Describe your feeling">
-        <!-- Text input field for entering a custom emotion, with a max character limit of 20 -->
+        <!-- Input field for users to describe their custom emotion. 'maxlength="20"' limits the input to 20 characters -->
         <button onclick="addOtherEmotion()">Submit</button>
-        <!-- Button to trigger the 'addOtherEmotion()' function to add the custom emotion -->
+        <!-- Button that triggers 'addOtherEmotion()' to submit the custom emotion -->
         <button onclick="hideOtherDialog()">Cancel</button>
-        <!-- Button to cancel and close the custom emotion dialog -->
+        <!-- Button to cancel and close the dialog -->
     </div>
 
     <!-- Stats Section -->
     <div id="stats-section" style="display: none;">
-        <!-- Hidden section for displaying poll statistics, initially hidden with 'display: none;' -->
+        <!-- Section for displaying poll statistics, hidden by default -->
         <h2>Poll Statistics</h2>
-        <!-- Subheading for the statistics section -->
+        <!-- Heading for the statistics section -->
         <canvas id="emotionChart"></canvas>
-        <!-- Canvas element for rendering a chart displaying voting statistics -->
+        <!-- <canvas> element is used to draw the chart using JavaScript. 'id="emotionChart"' will be used to reference this canvas in the JavaScript code to render the chart -->
     </div>
 
     <!-- Notification Dialog -->
     <div id="notification-dialog" style="display: none;">
-        <!-- Hidden dialog to display notifications, initially hidden with 'display: none;' -->
+        <!-- A dialog for showing notifications (e.g., vote submission success), hidden by default -->
         <p id="notification-message"></p>
-        <!-- Paragraph element where notification messages will be displayed -->
+        <!-- <p> element where the notification message will be displayed dynamically -->
         <button onclick="hideNotification()">Done</button>
-        <!-- Button to close the notification dialog after the message is read -->
+        <!-- Button to close the notification dialog -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- External JavaScript library for rendering charts, included from a CDN (Chart.js) -->
+    <!-- External script for loading the Chart.js library (used for drawing the chart). The script is hosted on a CDN (Content Delivery Network) and is included here -->
     <script src="{{ url_for('static', filename='js/1.js') }}"></script>
-    <!-- Links an external JavaScript file (1.js) for functionality via the Flask 'url_for' function -->
+    <!-- Linking the JavaScript file. 'src' points to the location of the file (handled by Flask's 'url_for()' to generate the URL dynamically) -->
 </body>
 </html>
