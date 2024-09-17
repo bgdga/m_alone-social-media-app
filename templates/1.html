@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feelings ??</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/1.css') }}">
+</head>
+<body>
+    <header>
+        <h1>!! Emotions make us Human !!</h1>
+    </header>
+    
+    <div id="auth-section" class="centered-container">
+        <button onclick="showSignup()">Signup</button>
+        <button onclick="showLogin()">Login</button>
+    </div>
+
+    <!-- Signup Dialog -->
+    <div id="signup-dialog" style="display: none;">
+        <h2>Signup</h2>
+        <input type="text" id="signup-username" placeholder="Username">
+        <input type="password" id="signup-password" placeholder="Password">
+        <button onclick="signup()">Signup</button>
+        <button onclick="hideDialog()">Cancel</button>
+    </div>
+
+    <!-- Login Dialog -->
+    <div id="login-dialog" style="display: none;">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <button onclick="hideDialog()">Cancel</button>
+    </div>
+
+    <!-- Poll Section -->
+    <div id="poll-section" style="display: none;">
+        <h2>How are you feeling currently?</h2>
+        <ul id="emotion-list">
+            <li data-emotion="Happy">😊 Happy</li>
+            <li data-emotion="Sad">😢 Sad</li>
+            <li data-emotion="Angry">😠 Angry</li>
+            <li data-emotion="Scared">😨 Scared</li>
+            <li data-emotion="Neutral">😐 Neutral</li>
+            <li data-emotion="Other">🔤 Other</li>
+        </ul>
+        <button onclick="submitVote()">Submit Vote</button>
+    </div>
+
+    <!-- Other Emotion Dialog -->
+    <div id="other-dialog" style="display: none;">
+        <h2>Express Your Feeling</h2>
+        <input type="text" id="other-emotion" maxlength="20" placeholder="Describe your feeling">
+        <button onclick="addOtherEmotion()">Submit</button>
+        <button onclick="hideOtherDialog()">Cancel</button>
+    </div>
+
+    <!-- Stats Section -->
+    <div id="stats-section" style="display: none;">
+        <h2>Poll Statistics</h2>
+        <canvas id="emotionChart"></canvas>
+    </div>
+
+    <!-- Notification Dialog -->
+    <div id="notification-dialog" style="display: none;">
+        <p id="notification-message"></p>
+        <button onclick="hideNotification()">Done</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/1.js') }}"></script>
+</body>
+</html>

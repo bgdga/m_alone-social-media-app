@@ -1,0 +1,114 @@
+/* Ensure the body takes up the full viewport height */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+#poll-section, #stats-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#emotion-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#emotion-list li {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d4edda; /* Greenish background */
+    transition: background-color 0.3s;
+}
+
+#emotion-list li.selected {
+    background-color: #a3c2ff; /* Bluish background when selected */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;  /* Centering adjustments */
+    font-size: 16px;  /* Updated button font size */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#other-dialog, #notification-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(173, 216, 230, 0.9); /* Light blue */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000; /* Ensure it is on top */
+}
+
+#notification-message {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#other-dialog input, #notification-dialog button {
+    display: block;
+    margin: 10px auto;
+}
+
+#notification-dialog {
+    display: none; /* Initially hidden */
+    background-color: rgba(173, 216, 230, 0.8); /* Slightly darker for notification */
+}
+
+#notification-dialog button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#notification-dialog button:hover {
+    background-color: #45a049;
+}
+
+/* Centered container for login and signup buttons */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Vertically center */
+    align-items: center;      /* Horizontally center */
+    height: 100vh;            /* Full viewport height */
+    text-align: center;       /* Center text inside the container */
+}
