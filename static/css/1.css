@@ -1,114 +1,114 @@
 /* Ensure the body takes up the full viewport height */
 body, html {
-    height: 100%;
-    margin: 0;
+    height: 100%; /* Sets the height of the body and html elements to 100% of the viewport height */
+    margin: 0; /* Removes default margin around the body and html elements */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 0;
+    font-family: Arial, sans-serif; /* Sets the font of the text inside the body to Arial, and if unavailable, to a generic sans-serif font */
+    background-color: #f4f4f4; /* Sets the background color of the body to a light grey */
+    color: #333; /* Sets the text color inside the body to a dark grey */
+    padding: 0; /* Removes default padding inside the body */
 }
 
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    text-align: center;
+    background-color: #4CAF50; /* Sets the background color of the header to a green shade */
+    color: white; /* Sets the text color inside the header to white */
+    padding: 15px; /* Adds 15 pixels of padding inside the header */
+    text-align: center; /* Centers the text inside the header */
 }
 
 #poll-section, #stats-section {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Adds 20 pixels of margin around the #poll-section and #stats-section */
+    padding: 20px; /* Adds 20 pixels of padding inside the #poll-section and #stats-section */
+    background-color: white; /* Sets the background color of #poll-section and #stats-section to white */
+    border-radius: 8px; /* Rounds the corners of #poll-section and #stats-section with an 8-pixel radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow around #poll-section and #stats-section */
 }
 
 #emotion-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Removes default list style (bullets) from the list */
+    padding: 0; /* Removes default padding from the list */
 }
 
 #emotion-list li {
-    display: inline-block;
-    margin: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #d4edda; /* Greenish background */
-    transition: background-color 0.3s;
+    display: inline-block; /* Displays list items inline, making them appear side-by-side */
+    margin: 10px; /* Adds 10 pixels of margin around each list item */
+    font-size: 1.2em; /* Sets the font size of the list items to 1.2 times the default size */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over list items */
+    padding: 10px; /* Adds 10 pixels of padding inside each list item */
+    border-radius: 5px; /* Rounds the corners of the list items with a 5-pixel radius */
+    background-color: #d4edda; /* Sets a greenish background color for the list items */
+    transition: background-color 0.3s; /* Adds a smooth transition effect for background color changes over 0.3 seconds */
 }
 
 #emotion-list li.selected {
-    background-color: #a3c2ff; /* Bluish background when selected */
+    background-color: #a3c2ff; /* Changes the background color of selected list items to a bluish shade */
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;  /* Centering adjustments */
-    font-size: 16px;  /* Updated button font size */
+    background-color: #4CAF50; /* Sets the background color of buttons to a green shade */
+    color: white; /* Sets the text color of buttons to white */
+    padding: 10px 20px; /* Adds 10 pixels of padding vertically and 20 pixels horizontally inside buttons */
+    border: none; /* Removes default border from buttons */
+    border-radius: 5px; /* Rounds the corners of buttons with a 5-pixel radius */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over buttons */
+    margin: 10px; /* Adds 10 pixels of margin around buttons */
+    font-size: 16px; /* Sets the font size of buttons to 16 pixels */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Changes the background color of buttons to a darker green when hovered */
 }
 
 #other-dialog, #notification-dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(173, 216, 230, 0.9); /* Light blue */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    z-index: 1000; /* Ensure it is on top */
+    position: fixed; /* Positions the dialogs relative to the viewport, making them stay in place during scrolling */
+    top: 50%; /* Positions the top edge of the dialogs at 50% of the viewport height */
+    left: 50%; /* Positions the left edge of the dialogs at 50% of the viewport width */
+    transform: translate(-50%, -50%); /* Centers the dialogs by translating them back by 50% of their own width and height */
+    background-color: rgba(173, 216, 230, 0.9); /* Sets a light blue background color with 90% opacity for the dialogs */
+    padding: 20px; /* Adds 20 pixels of padding inside the dialogs */
+    border-radius: 10px; /* Rounds the corners of the dialogs with a 10-pixel radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adds a shadow around the dialogs with more opacity */
+    text-align: center; /* Centers the text inside the dialogs */
+    z-index: 1000; /* Ensures the dialogs are above other elements */
 }
 
 #notification-message {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 1.2em; /* Sets the font size of the notification message to 1.2 times the default size */
+    font-weight: bold; /* Makes the notification message text bold */
+    margin-bottom: 10px; /* Adds 10 pixels of margin below the notification message */
 }
 
 #other-dialog input, #notification-dialog button {
-    display: block;
-    margin: 10px auto;
+    display: block; /* Displays inputs and buttons as block-level elements, making them stack vertically */
+    margin: 10px auto; /* Centers inputs and buttons horizontally and adds 10 pixels of vertical margin */
 }
 
 #notification-dialog {
-    display: none; /* Initially hidden */
-    background-color: rgba(173, 216, 230, 0.8); /* Slightly darker for notification */
+    display: none; /* Hides the notification dialog initially */
+    background-color: rgba(173, 216, 230, 0.8); /* Sets a slightly darker blue background color with 80% opacity for the notification dialog */
 }
 
 #notification-dialog button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #4CAF50; /* Sets the background color of the button inside the notification dialog to green */
+    color: white; /* Sets the text color of the button to white */
+    padding: 10px; /* Adds 10 pixels of padding inside the button */
+    border: none; /* Removes default border from the button */
+    border-radius: 5px; /* Rounds the corners of the button with a 5-pixel radius */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
 }
 
 #notification-dialog button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Changes the background color of the button to a darker green when hovered */
 }
 
 /* Centered container for login and signup buttons */
 .centered-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  /* Vertically center */
-    align-items: center;      /* Horizontally center */
-    height: 100vh;            /* Full viewport height */
-    text-align: center;       /* Center text inside the container */
+    display: flex; /* Uses Flexbox layout for the container */
+    flex-direction: column; /* Stacks child elements vertically */
+    justify-content: center; /* Vertically centers the child elements */
+    align-items: center; /* Horizontally centers the child elements */
+    height: 100vh; /* Sets the container height to 100% of the viewport height */
+    text-align: center; /* Centers the text inside the container */
 }
