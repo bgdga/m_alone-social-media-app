@@ -1,74 +1,121 @@
 <!DOCTYPE html>
+<!-- Defines the document type as HTML5 -->
 <html lang="en">
+<!-- Opens an HTML document and sets the language to English -->
 <head>
     <meta charset="UTF-8">
+    <!-- Specifies the character encoding as UTF-8, supporting a wide range of characters -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures the page is responsive and adjusts to various device screen widths -->
     <title>Feelings ??</title>
+    <!-- Sets the title of the webpage to 'Feelings ??', displayed in the browser tab -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/1.css') }}">
+    <!-- Links an external CSS file (1.css) for styling via the 'url_for' Flask function -->
 </head>
 <body>
+    <!-- Begins the body of the webpage where visible content is placed -->
     <header>
+        <!-- Defines a header section for the page -->
         <h1>!! Emotions make us Human !!</h1>
+        <!-- Main title or heading displayed at the top of the page -->
     </header>
     
     <div id="auth-section" class="centered-container">
+        <!-- A div container for the authentication section with a class to center its contents -->
         <button onclick="showSignup()">Signup</button>
+        <!-- Signup button; triggers the JavaScript function 'showSignup()' when clicked -->
         <button onclick="showLogin()">Login</button>
+        <!-- Login button; triggers the JavaScript function 'showLogin()' when clicked -->
     </div>
 
     <!-- Signup Dialog -->
     <div id="signup-dialog" style="display: none;">
+        <!-- Hidden dialog for the signup form, initially hidden with 'display: none;' -->
         <h2>Signup</h2>
+        <!-- Subheading for the signup form -->
         <input type="text" id="signup-username" placeholder="Username">
+        <!-- Text input field for entering the signup username -->
         <input type="password" id="signup-password" placeholder="Password">
+        <!-- Password input field for entering the signup password -->
         <button onclick="signup()">Signup</button>
+        <!-- Button to trigger the 'signup()' JavaScript function for signing up -->
         <button onclick="hideDialog()">Cancel</button>
+        <!-- Button to trigger the 'hideDialog()' function to close the signup dialog -->
     </div>
 
     <!-- Login Dialog -->
     <div id="login-dialog" style="display: none;">
+        <!-- Hidden dialog for the login form, initially hidden with 'display: none;' -->
         <h2>Login</h2>
+        <!-- Subheading for the login form -->
         <input type="text" id="login-username" placeholder="Username">
+        <!-- Text input field for entering the login username -->
         <input type="password" id="login-password" placeholder="Password">
+        <!-- Password input field for entering the login password -->
         <button onclick="login()">Login</button>
+        <!-- Button to trigger the 'login()' function to perform user login -->
         <button onclick="hideDialog()">Cancel</button>
+        <!-- Button to cancel and close the login dialog -->
     </div>
 
     <!-- Poll Section -->
     <div id="poll-section" style="display: none;">
+        <!-- Hidden poll section where users select their current emotion -->
         <h2>How are you feeling currently?</h2>
+        <!-- Subheading asking users about their current emotion -->
         <ul id="emotion-list">
+            <!-- Unordered list of emotions for users to choose from -->
             <li data-emotion="Happy">😊 Happy</li>
+            <!-- List item representing the 'Happy' emotion, with an emoji and emotion name -->
             <li data-emotion="Sad">😢 Sad</li>
+            <!-- List item for the 'Sad' emotion -->
             <li data-emotion="Angry">😠 Angry</li>
+            <!-- List item for the 'Angry' emotion -->
             <li data-emotion="Scared">😨 Scared</li>
+            <!-- List item for the 'Scared' emotion -->
             <li data-emotion="Neutral">😐 Neutral</li>
+            <!-- List item for the 'Neutral' emotion -->
             <li data-emotion="Other">🔤 Other</li>
+            <!-- List item for the 'Other' emotion with a prompt for custom input -->
         </ul>
         <button onclick="submitVote()">Submit Vote</button>
+        <!-- Button to trigger the 'submitVote()' function to submit the user's vote -->
     </div>
 
     <!-- Other Emotion Dialog -->
     <div id="other-dialog" style="display: none;">
+        <!-- Hidden dialog for entering a custom emotion, initially hidden with 'display: none;' -->
         <h2>Express Your Feeling</h2>
+        <!-- Subheading for the custom emotion input section -->
         <input type="text" id="other-emotion" maxlength="20" placeholder="Describe your feeling">
+        <!-- Text input field for entering a custom emotion, with a max character limit of 20 -->
         <button onclick="addOtherEmotion()">Submit</button>
+        <!-- Button to trigger the 'addOtherEmotion()' function to add the custom emotion -->
         <button onclick="hideOtherDialog()">Cancel</button>
+        <!-- Button to cancel and close the custom emotion dialog -->
     </div>
 
     <!-- Stats Section -->
     <div id="stats-section" style="display: none;">
+        <!-- Hidden section for displaying poll statistics, initially hidden with 'display: none;' -->
         <h2>Poll Statistics</h2>
+        <!-- Subheading for the statistics section -->
         <canvas id="emotionChart"></canvas>
+        <!-- Canvas element for rendering a chart displaying voting statistics -->
     </div>
 
     <!-- Notification Dialog -->
     <div id="notification-dialog" style="display: none;">
+        <!-- Hidden dialog to display notifications, initially hidden with 'display: none;' -->
         <p id="notification-message"></p>
+        <!-- Paragraph element where notification messages will be displayed -->
         <button onclick="hideNotification()">Done</button>
+        <!-- Button to close the notification dialog after the message is read -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- External JavaScript library for rendering charts, included from a CDN (Chart.js) -->
     <script src="{{ url_for('static', filename='js/1.js') }}"></script>
+    <!-- Links an external JavaScript file (1.js) for functionality via the Flask 'url_for' function -->
 </body>
 </html>
