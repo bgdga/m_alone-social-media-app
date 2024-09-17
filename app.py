@@ -5,7 +5,7 @@ from flask_session import Session
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/emotionPoll'
-app.config['SECRET_KEY'] = 'Amrita@1'
+app.config['SECRET_KEY'] = 'test01'
 app.config['SESSION_TYPE'] = 'filesystem'
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
